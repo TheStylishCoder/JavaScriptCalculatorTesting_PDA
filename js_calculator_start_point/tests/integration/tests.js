@@ -18,6 +18,12 @@ describe('calculator functionality', function() {
   })
 
   //   Do the number buttons update the display of the running total?
+  it('should update display of running total when number buttons are clicked', function(){
+    running_total = element(by.css('#running_total'))
+    element(by.css('#number9')).click();
+    element(by.css('#number9')).click();
+    expect(running_total.getAttribute('value')).to.eventually.equal('99')
+  })
   // Do the arithmetical operations update the display with the result of the operation?
   it('should update display with operation result', function(){
     running_total = element(by.css('#running_total'))
