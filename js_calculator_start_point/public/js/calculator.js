@@ -18,6 +18,9 @@ Calculator.prototype.multiply = function(number){
 }
 
 Calculator.prototype.divide = function(number){
+  if(number === 0){
+    this.runningTotal = "Cannot divide by 0"
+  } else
   this.runningTotal = parseFloat(this.previousTotal) / parseFloat(number);
 }
 

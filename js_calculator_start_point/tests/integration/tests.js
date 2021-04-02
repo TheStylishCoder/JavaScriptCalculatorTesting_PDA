@@ -97,5 +97,13 @@ describe('calculator functionality', function() {
     expect(running_total.getAttribute('value')).to.eventually.equal('80000')
   })
   // What does the code do in exceptional circumstances? Specifically, if you divide by zero, what is the effect? Write a test to describe what you'd prefer to happen, and then correct the code to make that test pass (you will need to modify the Calculator model to meet this requirement).
-
+ //Currently when you divide by 0 you get 'Infinity' as a result but I would prefer it to return an error message.
+ it('should return error message when number is divided by 0', function(){
+  running_total = element(by.css('#running_total'))
+  element(by.css('#number3')).click();
+  element(by.css('#operator_divide')).click();
+  element(by.css('#number0')).click();
+  element(by.css('#operator_equals')).click();
+  expect(running_total.getAttribute('value')).to.eventually.equal('Cannot divide by 0')
+})
 });
