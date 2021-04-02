@@ -30,14 +30,17 @@ describe('calculator', function () {
     assert.strictEqual(15, calculator.runningTotal);
   })
   // calculator.divide() - divide 21 by 7 and get 3
+  it('can divide 21 by 7 and get 3', function(){
+    calculator.previousTotal = 21;
+    calculator.divide(7);
+    assert.strictEqual(3, calculator.runningTotal);
+  })
   // calculator.numberClick() - concatenate multiple number button clicks
-  // it('can concatenate multiple number button clicks', function(){
-  //   calculator.numberClick(1);
-  //   calculator.operatorClick("+")
-  //   calculator.numberClick(2);
-  //   calculator.operatorClick("=")
-  //   assert.strictEqual(12, calculator.runningTotal);
-  // })
+  it('can concatenate multiple number button clicks', function(){
+    calculator.numberClick(2);
+    calculator.numberClick(4);
+    assert.strictEqual(24, calculator.runningTotal);
+  })
   // calculator.operatorClick() - chain multiple operations together
   // calculator.clearClick() - clear the running total without affecting the calculation
 
